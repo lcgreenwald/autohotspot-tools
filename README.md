@@ -1,4 +1,4 @@
-# Hotspot-Tools by KM4ACK
+# Hotspot-Tools by KM4ACK Some modifications/customizations by WB0SIO
 
 # Description
 
@@ -8,7 +8,7 @@ or by using the [Build-a-Pi](https://github.com/km4ack/pi-build) script.
 
 # Install
 
-     git clone https://github.com/km4ack/hotspot-tools.git $HOME/hotspot-tools 
+     git clone https://github.com/lcgreenwald/autohotspot-tools.git $HOME/hotspot-tools 
 
      cd ~/hotspot-tools
 
