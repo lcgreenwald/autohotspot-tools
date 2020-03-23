@@ -1,4 +1,5 @@
-# Hotspot-Tools by KM4ACK Some modifications/customizations by WB0SIO
+# Hotspot-Tools by KM4ACK
+Some modifications/customizations by WB0SIO
 
 # Description
 
