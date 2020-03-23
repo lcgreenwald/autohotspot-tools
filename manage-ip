@@ -1,0 +1,63 @@
+#!/bin/bash
+
+#script to modify the hotspot IP address
+#and the range of ip addresses assigned
+#by the hotspot DHCP server
+#20200223 km4ack
+#20200308 wb0sio
+
+clear
+
+#20200308 wb0sio
+TimeStamp=$(date +%Y%m%d%H%M%S)
+
+sudo cp /usr/bin/autohotspotN /usr/bin/autohotspotN.bkup.$TimeStamp
+echo "/usr/bin/autohotspotN backup created"
+
+sudo cp /etc/dnsmasq.conf /etc/dnsmasq.conf.bkup$TimeStamp
+echo "/etc/dnsmasq.conf backup created"
+# end 20200308 wb0sio modifications
+
+clear
+
+# Added 20200308 wb0sio
+wifiIP () {
+echo;echo;echo
+echo "Hotspot IP Address."
+echo "This IP address will be used for the WiFi hotspot"
+echo "when the pi is in hotspot mode."
+read -p "Enter the IP address to use with new hotspot " IPaddress
+NetworkString=${IPaddress%.*}
+echo;echo
+echo "You entered $IPaddress"
+read -p "Is this correct? y/n " IPans
+if [ $IPans == "y" ]
+then
+echo
+else
+wifiIP
+fi
+}
+
+wifiIP
+#### End wb0sio addition
+
+if [ $ANS = 'y' ] || [ $ANS = 'Y' ]
+then
+#set new ip for autohotspotN
+sudo sed -i "s/10.10.10.10/$IPaddress/" /usr/bin/autohotspotN
+#set new ip for dnsmasq.conf
+sudo sed -i "s/dhcp-range=1*$/dhcp-range=$NetworkString.150,$NetworkString.200,255.255.255.0,12h/" /etc/dnsmasq.conf
+sudo sed -i "s/dhcp-option=3,*/dhcp-option=3,$IPaddress/" /etc/dnsmasq.conf
+sudo sed -i "s/address=\/email.com\/*/address=\/email.com\/$IPaddress/" /etc/dnsmasq.conf
+elif [ $ANS = 'exit' ] || [ $ANS = 'EXIT' ]
+then
+exit 0
+else
+exit 0
+fi
+
+echo "After connecting to your hotspot wifi"
+echo "use IP address "$IP".10.10 in VNC to connect"
+echo "Reboot required to apply changes"
+read -n 1 -s -r -p "Press any key to continue"
