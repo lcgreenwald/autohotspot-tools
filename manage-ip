@@ -45,7 +45,7 @@ wifiIP
 if [ $ANS = 'y' ] || [ $ANS = 'Y' ]
 then
 #set new ip for autohotspotN
-sudo sed -i "s/10.10.10.10/$IPaddress/" /usr/bin/autohotspotN
+sudo sed -i "s/1*$/$IPaddress/" /usr/bin/autohotspotN
 #set new ip for dnsmasq.conf
 sudo sed -i "s/dhcp-range=1*$/dhcp-range=$NetworkString.150,$NetworkString.200,255.255.255.0,12h/" /etc/dnsmasq.conf
 sudo sed -i "s/dhcp-option=3,*/dhcp-option=3,$IPaddress/" /etc/dnsmasq.conf
@@ -58,6 +58,6 @@ exit 0
 fi
 
 echo "After connecting to your hotspot wifi"
-echo "use IP address "$IP".10.10 in VNC to connect"
+echo "use IP address $IPaddress in VNC to connect"
 echo "Reboot required to apply changes"
 read -n 1 -s -r -p "Press any key to continue"
