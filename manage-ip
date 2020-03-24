@@ -30,9 +30,12 @@ read -p "Enter the IP address to use with new hotspot " IPaddress
 NetworkString=${IPaddress%.*}
 echo;echo
 echo "You entered $IPaddress"
-read -p "Is this correct? y/n " IPans
+read -p "Is this correct? y/n/exit " IPans
 if [ $IPans == "y" ]
 then
+echo
+echo "IPAddress: "$IPAddress
+echo "NetworkString: "$NetworkString
 echo
 else
 wifiIP
@@ -42,7 +45,7 @@ fi
 wifiIP
 #### End wb0sio addition
 
-if [ $ANS = 'y' ] || [ $ANS = 'Y' ]
+if [ $IPans = 'y' ] || [ $IPans = 'Y' ]
 then
 #set new ip for autohotspotN
 sudo sed -i "s/1*$/$IPaddress/" /usr/bin/autohotspotN
@@ -50,7 +53,7 @@ sudo sed -i "s/1*$/$IPaddress/" /usr/bin/autohotspotN
 sudo sed -i "s/dhcp-range=1*$/dhcp-range=$NetworkString.150,$NetworkString.200,255.255.255.0,12h/" /etc/dnsmasq.conf
 sudo sed -i "s/dhcp-option=3,*/dhcp-option=3,$IPaddress/" /etc/dnsmasq.conf
 sudo sed -i "s/address=\/email.com\/*/address=\/email.com\/$IPaddress/" /etc/dnsmasq.conf
-elif [ $ANS = 'exit' ] || [ $ANS = 'EXIT' ]
+elif [ $IPans = 'exit' ] || [ $IPans = 'EXIT' ]
 then
 exit 0
 else
