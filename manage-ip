@@ -34,7 +34,7 @@ read -p "Is this correct? y/n/exit " IPans
 if [ $IPans == "y" ]
 then
 echo
-echo "IPAddress: "$IPAddress
+echo "IPAddress: "$IPaddress
 echo "NetworkString: "$NetworkString
 echo
 else
