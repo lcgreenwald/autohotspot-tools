@@ -48,7 +48,8 @@ wifiIP
 if [ $IPans = 'y' ] || [ $IPans = 'Y' ]
 then
 #set new ip for autohotspotN
-sudo sed -i "s/ip a add *.*.*.*$/ip a add $IPaddress/" /usr/bin/autohotspotN
+wifidevtag='"$wifidev"'
+sudo sed -i "s/ip a add 1*.*.*.*/ip a add $IPaddress\/24 brd + dev $wifidevtag/" /usr/bin/autohotspotN
 #set new ip for dnsmasq.conf
 sudo sed -i "s/dhcp-range=*.*.*$/dhcp-range=$NetworkString.150,$NetworkString.200,255.255.255.0,12h/" /etc/dnsmasq.conf
 sudo sed -i "s/dhcp-option=3,*.*.*$/dhcp-option=3,$IPaddress/" /etc/dnsmasq.conf
