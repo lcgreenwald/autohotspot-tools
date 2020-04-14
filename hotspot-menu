@@ -12,7 +12,7 @@ and for the feedback you have given
 EOF
 read -n 1 -s -r -p "Press any key to continue"
 
-DIR=$HOME/hotspot-tools
+DIR=$HOME/autohotspot-tools
 VER=$(cat $DIR/changelog | grep version= | sed 's/version=//')
 
 PS3='Please enter your choice: '
@@ -42,7 +42,7 @@ fi
 
 
 clear;echo
-echo "Hotspot Tools v"$VER" by KM4ACK"
+echo "Hotspot Tools v"$VER" by KM4ACK with additions by WB0SIO"
 echo 
 echo "------HOTSPOT PARAMETERS------"
 echo "   Status   "$HS

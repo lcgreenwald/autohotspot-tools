@@ -37,6 +37,9 @@ echo
 echo "IPAddress: "$IPaddress
 echo "NetworkString: "$NetworkString
 echo
+elif [ $IPans = 'exit' ] || [ $IPans = 'EXIT' ]
+then
+exit 0
 else
 wifiIP
 fi
