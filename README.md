@@ -9,11 +9,11 @@ or by using the [Build-a-Pi](https://github.com/km4ack/pi-build) script.
 
 # Install
 
-     git clone https://github.com/lcgreenwald/autohotspot-tools.git $HOME/hotspot-tools 
+     git clone https://github.com/lcgreenwald/autohotspot-tools.git $HOME/autohotspot-tools 
 
-     cd ~/hotspot-tools
+     cd ~/autohotspot-tools
 
-     git checkout dev
+     git checkout master
 
      bash setup
 
