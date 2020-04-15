@@ -2,17 +2,11 @@
 
 #main menu for hotspot tools
 #20200221 km4ack
+#20200414 wb0sio
 
-cat <<EOF
-New DHCP feature added. Please
-remember to back up your pi before
-trying to flush the DHCP leases.
-THANK YOU for testing this script
-and for the feedback you have given
-EOF
-read -n 1 -s -r -p "Press any key to continue"
+#20200414 wb0sio  Deleted DHCP message.
 
-DIR=$HOME/autohotspot-tools
+DIR=$HOME/autohotspot-tools  #20200414 wb0sio
 VER=$(cat $DIR/changelog | grep version= | sed 's/version=//')
 
 PS3='Please enter your choice: '

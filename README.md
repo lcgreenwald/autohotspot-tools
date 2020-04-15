@@ -31,5 +31,7 @@ or by using the [Build-a-Pi](https://github.com/km4ack/pi-build) script.
 
 7 - List Known SSID’s already in the pi.
 
-8 - Update the hotspot tools app
+8 - List DHCP leases currently assigned by the raspberry pi hotspot and optionally, delete them.
+
+9 - Update the hotspot tools app
 

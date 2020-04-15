@@ -19,8 +19,7 @@ clear;echo;echo
 echo "List of Current DHCP Addresses"
 echo "$DHCP" | awk '{ print $3" "$4" "$5 }'
 echo;echo
-read -p "Flush DHCP Leases? y/n " ANS
-if [ $HSS = 'ACTIVE' ] && [ $ANS = 'y' ] || [ $ANS = 'Y' ]
+if [ $HSS = 'ACTIVE' ]
 then
 cat <<EOF
 Hotspot is currently active.
@@ -29,9 +28,11 @@ by connecting to a known SSID
 and try flushing DHCP leases
 again
 EOF
-sleep 5
+#sleep 5
+read -n 1 -s -r -p "Press any key to exit"
 exit 1
 fi
+read -p "Flush DHCP Leases? y/n " ANS
 if [ $ANS = 'y' ] || [ $ANS = 'Y' ]
 then
 sudo systemctl stop dnsmasq
