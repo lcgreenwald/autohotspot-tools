@@ -4,8 +4,12 @@ Some modifications/customizations by WB0SIO
 # Description
 
 A collection of tools to manage the hotspot on the raspberry pi.
-The hotspot can be installed [from here](https://youtu.be/qMT-0mz1lkI)
+The original km4ack version of the hotspot can be installed [from here](https://youtu.be/qMT-0mz1lkI)
 or by using the [Build-a-Pi](https://github.com/km4ack/pi-build) script.
+
+My version with the user supplied hotspot IP address:
+Autohotspot - https://github.com/lcgreenwald/autohotspot.git
+Build-a-pi - https://github.com/lcgreenwald/pi-build-2.git
 
 # Install
 
@@ -25,7 +29,7 @@ or by using the [Build-a-Pi](https://github.com/km4ack/pi-build) script.
 
 4 - Enable hotspot that has been disabled using #3
 
-5 - Change the IP of hotspot & pi DHCP server (Experimental)
+5 - Change the IP of hotspot & pi DHCP server (Experimental). wb0sio - Modified to update the entire IP address instead of just the first half.
 
 6 - Manage SSID's. Add/Remove SSID's from the system. Helpful when in hotspot mode and no previously known SSID’s are in range.
 
