@@ -8,7 +8,9 @@ The original km4ack version of the hotspot can be installed [from here](https://
 or by using the [Build-a-Pi](https://github.com/km4ack/pi-build) script.
 
 My version with the user supplied hotspot IP address:
+
 Autohotspot - https://github.com/lcgreenwald/autohotspot.git
+
 Build-a-pi - https://github.com/lcgreenwald/pi-build-2.git
 
 # Install
