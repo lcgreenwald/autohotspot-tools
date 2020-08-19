@@ -5,6 +5,7 @@
 #20200414 wb0sio
 
 #20200414 wb0sio  Deleted DHCP message.
+#20200819 wb0sio  Modified update
 
 DIR=$HOME/autohotspot-tools  #20200414 wb0sio
 VER=$(cat $DIR/changelog | grep version= | sed 's/version=//')
@@ -94,10 +95,14 @@ do
             ;;
        "Update")
 	    echo "checking for updates"
-            cd $DIR
+        cd $DIR
 	    git fetch --all
 	    git reset --hard origin/master
-	    bash setup
+	    # 20200819 wb0sio
+	    #bash setup  20200819 wb0sio commented out
+	    # added
+		chmod +x disable enable hotspot-menu hotspotname knowssid manage-ip wificonnect
+	    # end 20200819 wb0sio
 	    echo "Please restart HotSpot-Tools script to see changes."
   	    read -n 1 -s -r -p "Press any key to continue"
 	    MAINMENU
