@@ -10,6 +10,7 @@
 
 DIR=$HOME/hotspot-tools  #20200414 wb0sio
 VER=$(cat $DIR/changelog | grep version= | sed 's/version=//')
+export DIR VER
 
 PS3='Please enter your choice: '
 MAINMENU () {
