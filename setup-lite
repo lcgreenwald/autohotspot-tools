@@ -5,7 +5,7 @@
 #20200414 wb0sio
 #20200819 wb0sio created setup-lite for raspian os lite
 
-DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
+DIR=$HOME/hotspot-tools
 
 #chmod all files
 cd $DIR

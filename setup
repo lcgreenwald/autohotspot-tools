@@ -4,7 +4,7 @@
 #20200221 km4ack
 #20200414 wb0sio
 
-DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
+DIR=$HOME/hotspot-tools
 
 #move menu file to menu folder
 #chmod all files
