@@ -19,7 +19,9 @@ Build-a-pi - https://github.com/lcgreenwald/pi-build-2.git
 
      cd ~/hotspot-tools
 
-     bash setup
+     bash setup        # Use this for a pi running a desktop version of the OS.
+     
+     bash setup-lite   # Use this for a pi running the lite version of the OS.
 
 # Tools in Script
 
