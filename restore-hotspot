@@ -15,6 +15,7 @@ sudo rm /etc/wpa_supplicant/FORCE
 
 #run hotspot
 sudo /usr/bin/autohotspotN
+AUTORUN=$(crontab -l | grep autohotspotN | awk '{print $1}' | sed 's/*\///')
 echo "Force hotspot deactivated. Hotspot will check for known SSIDs every $AUTORUN minutes. If none found \
 the hotspot will be started" 
 sleep 2
