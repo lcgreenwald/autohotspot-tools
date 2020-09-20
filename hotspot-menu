@@ -7,7 +7,7 @@
 #20200414 wb0sio  Deleted DHCP message.
 #20200819 wb0sio  Modified update
 
-DIR=$HOME/autohotspot-tools  #20200414 wb0sio
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"  #20200920 wb0sio
 VER=$(cat $DIR/changelog | grep version= | sed 's/version=//')
 
 PS3='Please enter your choice: '
