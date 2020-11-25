@@ -1,0 +1,32 @@
+#!/bin/bash
+#-----------------------------------------------
+#		Restore HotSpot
+#-----------------------------------------------
+
+CHECK=$(ls /etc/wpa_supplicant/ | grep FORCE)
+if [ -z "$CHECK" ]; then
+echo "Force HotSpot Not Active. Nothing to undo."
+exit
+else
+echo "Restoring regular hotspot mode. Please standby" 
+#cp org wpa to wpa
+sudo cp /etc/wpa_supplicant/wpa_supplicant.org /etc/wpa_supplicant/wpa_supplicant.conf
+sudo rm /etc/wpa_supplicant/FORCE
+
+#run hotspot
+sudo /usr/bin/autohotspotN
+AUTORUN=$(crontab -l | grep autohotspotN | awk '{print $1}' | sed 's/*\///')
+echo "Force hotspot deactivated. Hotspot will check for known SSIDs every $AUTORUN minutes. If none found \
+the hotspot will be started" 
+sleep 2
+exit
+fi
+}
+
+
+if [ "$HS" = 'Disabled' ]; then
+echo "Enable HotSpot and try again." 
+exit
+fi
+
+exit

@@ -5,9 +5,12 @@
 #20200414 wb0sio
 
 #20200414 wb0sio  Deleted DHCP message.
+#20200819 wb0sio  Modified update
+#20200920 wb0sio	Added force-hotspot and restore-hotspot
 
-DIR=$HOME/autohotspot-tools  #20200414 wb0sio
+DIR=$HOME/hotspot-tools  #20200414 wb0sio
 VER=$(cat $DIR/changelog | grep version= | sed 's/version=//')
+export DIR VER
 
 PS3='Please enter your choice: '
 MAINMENU () {
@@ -46,66 +49,81 @@ echo "   Password "$CURRENTPASS
 echo "   IP Addr  "$HSIP  
 echo "------------------------------"
 echo
-options=("Change Name/Password" "Run Hotspot" "Disable Hotspot" "Enable Hotspot" "Manage IP" "Manage SSIDs" "Known SSIDs" "DHCP List" "Update" "Exit")
+options=("Change Name/Password" "Run Hotspot" "Force Hotspot" "Restore Hotspot" "Disable Hotspot" "Enable Hotspot" "Manage IP" "Manage SSIDs" "Known SSIDs" "DHCP List" "Update" "Exit")
 select opt in "${options[@]}"
 do
     case $opt in
-        "Change Name/Password")
-            $DIR/hotspotname
+      "Change Name/Password")
+        $DIR/hotspotname
+			MAINMENU
+            ;;
+      "Run Hotspot")
+				if [ $HS = 'Enabled' ];then
+					echo "Standby......"
+					$DIR/runhs
+					#sudo /usr/bin/autohotspotN
+					#sleep 4
+				else
+					echo "Hotspot is disabled. Please enable and try again."
+					sleep 3
+				fi
 	    MAINMENU
             ;;
-        "Run Hotspot")
-	    if [ $HS = 'Enabled' ];then
-	    echo "Standby......"
-	    $DIR/runhs
-	    #sudo /usr/bin/autohotspotN
-	    #sleep 4
-	    else
-	    echo "Hotspot is disabled. Please enable and try again."
-	    sleep 3
-	    fi
+      "Force Hotspot")
+				$DIR/force-hotspot
+				sleep 3
 	    MAINMENU
             ;;
-        "Disable Hotspot")
-            $DIR/disable
-	    sleep 3
+      "Restore Hotspot")
+				$DIR/restore-hotspot
+				sleep 3
+	    MAINMENU
+	          ;;
+      "Disable Hotspot")
+				$DIR/disable
+				sleep 3
 	    MAINMENU
             ;;
-       "Enable Hotspot")
-            $DIR/enable
-	    sleep 3
+      "Enable Hotspot")
+				$DIR/enable
+				sleep 3
 	    MAINMENU
             ;;
-       "Manage IP")
-	    $DIR/manage-ip
+      "Manage IP")
+				$DIR/manage-ip
 	    MAINMENU
             ;;
-       "Manage SSIDs")
-            sudo $DIR/wificonnect
+      "Manage SSIDs")
+				sudo $DIR/wificonnect
 	    MAINMENU
             ;;
-       "Known SSIDs")
-            $DIR/knowssid
+      "Known SSIDs")
+				$DIR/knowssid
 	    MAINMENU
             ;;
-       "DHCP List")
-            $DIR/dhcp
+      "DHCP List")
+				$DIR/dhcp
 	    MAINMENU
             ;;
-       "Update")
-	    echo "checking for updates"
-            cd $DIR
-	    git fetch --all
-	    git reset --hard origin/master
-	    bash setup
-	    echo "Please restart HotSpot-Tools script to see changes."
+      "Update")
+				echo "checking for updates"
+        cd $DIR
+				git fetch --all
+				git reset --hard origin/master
+				# 20200920 wb0sio
+				if [ -d $HOME/Desktop ]; then
+					bash setup
+				else
+					bash setup-lite	
+				fi
+				echo "Please restart HotSpot-Tools script to see changes."
   	    read -n 1 -s -r -p "Press any key to continue"
 	    MAINMENU
             ;;
-        "Exit")
-            exit 0
+      "Exit")
+				exit 0
             ;;
-        *) echo "invalid option $REPLY";;
+       *) echo "invalid option $REPLY";;
     esac
 done
 }

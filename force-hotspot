@@ -1,0 +1,30 @@
+#!/bin/bash
+#-----------------------------------------------
+#		Force HotSpot
+#-----------------------------------------------
+CHECK=$(ls /etc/wpa_supplicant/ | grep FORCE)
+if [ "$HS" = 'Disabled' ]; then
+echo "Can't force. HotSpot disabled" 
+sleep 2
+exit
+fi
+
+if [ -z "$CHECK" ]; then
+echo "Forcing into hotspot mode. Please standby"
+
+#backup current wpa
+sudo cp /etc/wpa_supplicant/wpa_supplicant.conf /etc/wpa_supplicant/wpa_supplicant.org
+sudo touch /etc/wpa_supplicant/FORCE
+
+#cp blank wpa to wpa
+sudo cp $DIR/.blankwpa /etc/wpa_supplicant/wpa_supplicant.conf
+
+#run hotspot
+sudo /usr/bin/autohotspotN
+echo "Force HotSpot Activated" 
+exit
+else
+echo "Force HotSpot Already Active" 
+exit
+fi
+

@@ -1,5 +1,13 @@
-version=0.24
+version=0.26
 
+0.26
+	2020/09/20 - wb0sio
+	Added force-hotspot and restore-hotspot
+	bump release #
+0.25
+	2020/04/14 - wb0sio
+	Created setup-lite for Raspberry Pi OS lite
+	bump release #
 0.24
 	2020/04/14 - wb0sio
 	Modified manage-ip to accept a full nnn.nnn.nnn.nnn IP address
