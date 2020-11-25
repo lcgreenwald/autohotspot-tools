@@ -55,56 +55,54 @@ do
     case $opt in
       "Change Name/Password")
         $DIR/hotspotname
-			MAINMENU
-            ;;
+			  MAINMENU
+        ;;
       "Run Hotspot")
 				if [ $HS = 'Enabled' ];then
 					echo "Standby......"
 					$DIR/runhs
-					#sudo /usr/bin/autohotspotN
-					#sleep 4
 				else
 					echo "Hotspot is disabled. Please enable and try again."
 					sleep 3
 				fi
-	    MAINMENU
-            ;;
+	      MAINMENU
+        ;;
       "Force Hotspot")
 				$DIR/force-hotspot
 				sleep 3
-	    MAINMENU
-            ;;
+	      MAINMENU
+        ;;
       "Restore Hotspot")
 				$DIR/restore-hotspot
 				sleep 3
-	    MAINMENU
-	          ;;
+	      MAINMENU
+	      ;;
       "Disable Hotspot")
 				$DIR/disable
 				sleep 3
-	    MAINMENU
-            ;;
+	      MAINMENU
+        ;;
       "Enable Hotspot")
 				$DIR/enable
 				sleep 3
-	    MAINMENU
-            ;;
+	      MAINMENU
+        ;;
       "Manage IP")
 				$DIR/manage-ip
-	    MAINMENU
-            ;;
+	      MAINMENU
+        ;;
       "Manage SSIDs")
 				sudo $DIR/wificonnect
-	    MAINMENU
-            ;;
+	      MAINMENU
+        ;;
       "Known SSIDs")
 				$DIR/knowssid
-	    MAINMENU
-            ;;
+	      MAINMENU
+        ;;
       "DHCP List")
 				$DIR/dhcp
-	    MAINMENU
-            ;;
+	      MAINMENU
+        ;;
       "Update")
 				echo "checking for updates"
         cd $DIR
@@ -118,11 +116,11 @@ do
 				fi
 				echo "Please restart HotSpot-Tools script to see changes."
   	    read -n 1 -s -r -p "Press any key to continue"
-	    MAINMENU
-            ;;
+	      MAINMENU
+        ;;
       "Exit")
 				exit 0
-            ;;
+        ;;
        *) echo "invalid option $REPLY";;
     esac
 done
