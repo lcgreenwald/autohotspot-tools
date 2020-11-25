@@ -9,7 +9,7 @@ DIR=$HOME/hotspot-tools
 
 #chmod all files
 cd $DIR
-chmod +x force-hotspot restore-hotspot disable enable hotspot-menu hotspotname knowssid manage-ip wificonnect
+chmod a+x force-hotspot restore-hotspot disable enable hotspot-menu hotspotname knowssid manage-ip wificonnect
 
 #create symlink in /usr/local/bin
 sudo ln -sf $DIR/hotspot-menu /usr/local/bin/hs-tools  
