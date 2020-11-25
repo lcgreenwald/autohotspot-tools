@@ -9,7 +9,7 @@ DIR=$HOME/autohotspot-tools
 
 #chmod all files
 cd $DIR
-chmod +x disable enable hotspot-menu hotspotname knowssid manage-ip wificonnect
+chmod a+x disable enable hotspot-menu hotspotname knowssid manage-ip wificonnect
 
 #create symlink in /usr/local/bin
 ln -sf $DIR/hotspot-menu /usr/local/bin/hs-tools  
