@@ -29,17 +29,24 @@ Build-a-pi - https://github.com/lcgreenwald/pi-build-2.git
 
 2 - Run hotspot script to check for known SSID’s in range
 
-3 - Disable the hotspot. This will make it like the hotspot feature doesn’t exist on the pi. This is something that quite a few people have asked for.
+3 - Force the hotspot to run in hotspot mode even if there is a known wifi available.
 
-4 - Enable hotspot that has been disabled using #3
+4 - Restore the normal hotspot operation
 
-5 - Change the IP of hotspot & pi DHCP server (Experimental). wb0sio - Modified to update the entire IP address instead of just the first half.
+5 - Disable the hotspot. This will make it like the hotspot feature doesn’t exist on the pi. This is something that quite a few people have asked for.
 
-6 - Manage SSID's. Add/Remove SSID's from the system. Helpful when in hotspot mode and no previously known SSID’s are in range.
+6 - Enable hotspot that has been disabled using #3
 
-7 - List Known SSID’s already in the pi.
+7 - Change the IP of hotspot & pi DHCP server (Experimental). wb0sio - Modified to update the entire IP address instead of just the first half.
 
-8 - List DHCP leases currently assigned by the raspberry pi hotspot and optionally, delete them.
+8 - Manage SSID's. Add/Remove SSID's from the system. Helpful when in hotspot mode and no previously known SSID’s are in range.
 
-9 - Update the hotspot tools app
+9 - List Known SSID’s already in the pi.
 
+10 - List DHCP leases currently assigned by the raspberry pi hotspot and optionally, delete them.
+
+11 - Reload the menu
+
+12 - Update the hotspot tools app
+
+13 - Exit
